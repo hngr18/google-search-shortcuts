@@ -2,10 +2,10 @@
   'use strict';
 
   // Enforce that the script is only run on search result pages (Google Search or Google Scholar)
-  var isResultsPage = document.querySelector('html[itemtype="http://schema.org/SearchResultsPage"], .gs_r');
-  if (!isResultsPage) {
-    return;
-  }
+  // var isResultsPage = document.querySelector('html[itemtype="http://schema.org/SearchResultsPage"], .gs_r');
+  // if (!isResultsPage) {
+  //   return;
+  // }
 
   // Globals
   var KEYS = {UP: 38, DOWN: 40, TAB: 9, J: 74, K: 75, SLASH: 191, ESC: 27};
@@ -22,7 +22,7 @@
       document.body.className += " useSimpleHighlight";
     }
 
-    var searchbox = document.querySelector('form[role="search"] input[type="text"]:nth-of-type(1)');
+    var searchbox = document.querySelector('#search');
 
     window.addEventListener('keydown', function(e) {
       e = e || window.event;

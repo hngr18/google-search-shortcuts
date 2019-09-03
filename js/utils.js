@@ -40,7 +40,7 @@ var shortcuts = {
   },
 
   getVisibleResults: function() {
-    var allResults = document.querySelectorAll('h3 a, #search .r > a:first-of-type, #foot a'),
+    var allResults = document.querySelectorAll('ytd-browse:not([hidden]) h3 a, ytd-search:not([hidden]) h3 a'),
         visibleResults = [];
 
     for (var i = 0; i < allResults.length; i++) {
@@ -67,7 +67,7 @@ var shortcuts = {
 
   // -- Highlight the active result
   findContainer: function(link) {
-    var container = link.closest('div.gs_r, div.g, li, td');
+    var container = link.closest('ytd-grid-video-renderer');
     return container != null ? container : link;
   },
 
@@ -92,7 +92,7 @@ var shortcuts = {
 
   focusResult: function(offset, useFancyHighlight) {
     var results = this.getVisibleResults(),
-        focused = document.querySelector('h3 a:focus, #search .r > a:focus, #foot a:focus'),
+        focused = document.querySelector('ytd-browse:not([hidden]) h3 a:focus, ytd-search:not([hidden]) h3 a:focus'),
         focusIndex = null;
 
     // No result is currently focused. Focus the first one
